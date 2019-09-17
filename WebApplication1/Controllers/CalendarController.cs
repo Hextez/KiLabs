@@ -22,14 +22,12 @@ namespace WebApplication1.Controllers
         }
 
 
-        // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
             return Ok(_calendar.GetCalendar());
         }
 
-        // GET api/values/5
         [HttpPost("[action]")]
         public ActionResult GetFromMany([FromBody] QueryList query)
         {

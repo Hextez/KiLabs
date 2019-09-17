@@ -30,31 +30,34 @@ namespace WebApplication1.Controllers
             if (!ModelState.IsValid)
                 return BadRequest();
 
-            
+            try { 
 
-            foreach (TimeOfInterview interview in data.TimeOfInterviews)
-            {
-                if (_calendar.GetCalendar().ContainsKey(interview.WeekDay.ToLower()))
+                foreach (TimeOfInterview interview in data.TimeOfInterviews)
                 {
-                    foreach (string hour in interview.Hours)
+                    if (_calendar.GetCalendar().ContainsKey(interview.WeekDay.ToLower()))
                     {
-                        var ts = hour.Split("-");
-                        if(ts.Length > 1)
+                        foreach (string hour in interview.Hours)
                         {
-                            var start = Int32.Parse(ts[0]);
-                            var end = Int32.Parse(ts[1]);
-                            for(var i = start; i < end; i++)
+                            var ts = hour.Split("-");
+                            if(ts.Length > 1)
                             {
-                                _calendar.GetCalendar()[interview.WeekDay.ToLower()][i+"-"+(i+1)].AddCadidate(data.Name);
+                                var start = Int32.Parse(ts[0]);
+                                var end = Int32.Parse(ts[1]);
+                                for(var i = start; i < end; i++)
+                                {
+                                    _calendar.GetCalendar()[interview.WeekDay.ToLower()][i+"-"+(i+1)].AddCadidate(data.Name);
 
+                                }
                             }
                         }
                     }
                 }
+
+                return Ok( new { Result = "Added all hours you requested." });
+            }catch (Exception ex)
+            {
+                return Ok(new { Result = ex.ToString() });
             }
-
-            return Ok( new { Result = "Added all hours you requested." });
-
         }
     }
 }
