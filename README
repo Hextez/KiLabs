@@ -1,0 +1,137 @@
+
+You can have the compiled project in the Folder "Compiled". 
+
+The zips contains the necessary to run the project. In the Windows you only need to run the WebApplication1.exe
+
+After you will have opened localhost:5000 and localhost:5001
+
+if you go to localhost:5001/swagger you will be able to see the endpoints created.
+
+Examples.
+For controller of Interviwers
+Put the body like this. the hours was made to be from 9-10 (9 hours to 10hours) or 11-15 (from 11 hours to 15 hours no breaks)
+{
+  "name": "Ines",
+  "timeOfInterviews": [
+    {
+      "weekDay": "Monday",
+      "hours": [
+        "9-16"
+      ]
+    },
+    {
+      "weekDay": "Tuesday",
+      "hours": [
+        "9-16"
+      ]
+    },
+    {
+      "weekDay": "Wednesday",
+      "hours": [
+        "9-16"
+      ]
+    },
+    {
+      "weekDay": "Thursday",
+      "hours": [
+        "9-16"
+      ]
+    },
+	{
+      "weekDay": "Friday",
+      "hours": [
+        "9-16"
+      ]
+    }
+  ]
+}
+
+{
+  "name": "Ingrid",
+  "timeOfInterviews": [
+    {
+      "weekDay": "Monday",
+      "hours": [
+        "12-18"
+      ]
+    },
+    {
+      "weekDay": "Tuesday",
+      "hours": [
+        "9-12"
+      ]
+    },
+    {
+      "weekDay": "Wednesday",
+      "hours": [
+        "12-18"
+      ]
+    },
+    {
+      "weekDay": "Thursday",
+      "hours": [
+        "9-12"
+      ]
+    }
+	
+  ]
+}
+
+For the Cadidate Controller
+
+{
+  "name": "Carl",
+  "timeOfInterviews": [
+    {
+      "weekDay": "Monday",
+      "hours": [
+        "9-10"
+      ]
+    },
+    {
+      "weekDay": "Tuesday",
+      "hours": [
+        "9-10"
+      ]
+    },
+    {
+      "weekDay": "Wednesday",
+      "hours": [
+        "10-12"
+      ]
+    },
+    {
+      "weekDay": "Thursday",
+      "hours": [
+        "9-10"
+      ]
+    },
+	{
+      "weekDay": "Friday",
+      "hours": [
+        "9-10"
+      ]
+    }
+]
+}
+
+For the Query I have made to endpoints GetFromMany
+{
+  "interviewers": [
+    "Ines", "Ingrid"
+  ],
+  "cadidate": "Carl"
+}
+
+or 
+{
+  "interviewers": [
+    "Ines"
+  ],
+  "cadidate": "Carl"
+}
+
+
+
+
+
